@@ -11,7 +11,11 @@ const app = express();
 const PORT = 5000;
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({
+  origin:["https://deploy-mern-1whq.vercel.app"],
+  methods:["POST", "GET", "DELETE"],
+  credentials:true
+}));
 //end app
 
 // connect DB
@@ -23,6 +27,11 @@ mongoose
 // end connect db
 
 //routes
+//test routes
+app.get("/",(req,res)=>{
+  res.json("Hello Test!!!!!!")
+})
+//end test
 // routes ingr
 app.post("/add", async (req, res) => {
   try {
@@ -62,7 +71,7 @@ app.delete("/:id", async(req, res)=>{
 //end ingr
 
 // routes Plats 
-app.post("/addplat", async (req, res) => {
+app.post("/plat/addplat", async (req, res) => {
   try {
     const newPlat = Plat({ ...req.body });
 
@@ -73,7 +82,7 @@ app.post("/addplat", async (req, res) => {
   }
 }); //end post
 //get method
-app.get("/dataplat", async (req, res) => {
+app.get("/plat/dataplat", async (req, res) => {
   try {
     const getData = await Plat.find();
     res.status(200).send({ msg: "all plats gutted", getData });
@@ -82,7 +91,7 @@ app.get("/dataplat", async (req, res) => {
   }
 }); //end get
 
-app.delete("/:id", async (req, res) => {
+app.delete("/plat/:id", async (req, res) => {
   try {
     const idPlats = req.params.id;
     const platDeleted = await Plat.deleteOne({ _id: idPlats });
