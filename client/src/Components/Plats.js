@@ -319,10 +319,7 @@ const Plats = () => {
           ))
         ) : (
           <h1>
-            SVP ajoutez des plats{" "}
-            <span>
-              <Link to={"/Ingredients"}>ici</Link>
-            </span>
+          Coming soon...
           </h1>
         )}
       </div>
