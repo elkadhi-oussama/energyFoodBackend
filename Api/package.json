@@ -6,11 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "front": "cd client && npm i",
-    "start": "nodemon server.js",
-    "inst": "concurrently \"npm i\" \"npm run front\"",
-    "lancer": "cd client && npm start",
-    "dev": "concurrently \"npm start\" \"npm run lancer\""
+    "start": "nodemon server.js"
+    
   },
   "keywords": [],
   "author": "",
