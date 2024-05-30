@@ -5,6 +5,7 @@ const Ingredients = ({ Ingrs, setIngrs }) => {
   const [selectType, setSelectType] = useState("");
   const [searchIngrs, setSearchIngrs] = useState("");
   const [showFPIngrs, setShowFPIngrs] = useState(false);
+  axios.defaults.withCredentials = true
   const [NewIngr, setNewIngr] = useState({
     nom: "",
     type: "crue",

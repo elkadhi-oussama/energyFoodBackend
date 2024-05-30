@@ -11,6 +11,7 @@ const Plats = () => {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [plats, setPlats] = useState([]);
   const [changeWhenDelete, setChangeWhenDelete] = useState(false);
+  axios.defaults.withCredentials = true
   // State to hold total nutritional values
   const [totals, setTotals] = useState({
     fat: 0,
