@@ -1,0 +1,26 @@
+[
+  {
+    "nom": "test2",
+    "contenu": [
+      { "nom": "acajou" },
+      { "nom": "acajou2" },
+      {
+        "carbs": 24,
+        "fat": 49,
+        "kcalories": 621,
+        "nom": "ACAJOU",
+        "protein": 21,
+        "type": "crue"
+      }
+    ],
+    "taille": "M",
+    "prix": 12
+  },
+  {
+    "nom": "ACAJOU",
+    "type": "crue",
+    "protein": 21,
+    "carbs": 24,
+    "fat": 49
+  }
+]
