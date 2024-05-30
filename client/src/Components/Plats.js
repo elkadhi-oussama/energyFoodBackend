@@ -11,7 +11,7 @@ const Plats = () => {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [plats, setPlats] = useState([]);
   const [changeWhenDelete, setChangeWhenDelete] = useState(false);
-  axios.defaults.withCredentials = true
+  axios.defaults.withCredentials = true;
   // State to hold total nutritional values
   const [totals, setTotals] = useState({
     fat: 0,
@@ -23,7 +23,9 @@ const Plats = () => {
   useEffect(() => {
     const getNosPlats = async () => {
       try {
-        const { data } = await axios.get("https://energy-food-api.vercel.app/plat/dataplat");
+        const { data } = await axios.get(
+          "https://energy-food-api.vercel.app/plat/dataplat"
+        );
         setPlats(data.getData);
       } catch (error) {
         console.log(error);
@@ -35,7 +37,9 @@ const Plats = () => {
   // Delete a plat from the server
   const deletePlats = async (id) => {
     try {
-      const { data } = await axios.delete(`https://energy-food-api.vercel.app/plat/${id}`);
+      const { data } = await axios.delete(
+        `https://energy-food-api.vercel.app/plat/${id}`
+      );
       alert(data.msg);
       setChangeWhenDelete(!changeWhenDelete);
     } catch (error) {
@@ -72,10 +76,13 @@ const Plats = () => {
   // Add a new plat to the server
   const addPlats = async () => {
     try {
-      const result = await axios.post("https://energy-food-api.vercel.app/plat/addplat", {
-        ...newPlats,
-        total: totals,
-      });
+      const result = await axios.post(
+        "https://energy-food-api.vercel.app/plat/addplat",
+        {
+          ...newPlats,
+          total: totals,
+        }
+      );
       alert(result.data.msg);
       setChangeWhenDelete(!changeWhenDelete);
       setNewPlats({
@@ -123,7 +130,6 @@ const Plats = () => {
             kcalories: +(prevTotals.kcalories + newData.kcalories).toFixed(2),
           }));
           setSelectedIngredients([...selectedIngredients, newData]);
-          console.log("newData : ", newData);
         } else {
           const newData = {
             ...data,
@@ -140,7 +146,6 @@ const Plats = () => {
             kcalories: +(prevTotals.kcalories + newData.kcalories).toFixed(2),
           }));
           setSelectedIngredients([...selectedIngredients, newData]);
-          console.log("newData : ", newData);
         }
 
         setQuantity(0);
@@ -158,7 +163,6 @@ const Plats = () => {
         }));
 
         setSelectedIngredients([...selectedIngredients, newData]);
-        console.log("newData : ", newData);
       }
     }
   };
@@ -276,7 +280,11 @@ const Plats = () => {
                 plat.contenu.map((cont, i) => (
                   <div key={i}>
                     <span>{cont.nom}</span>
-                    { cont.nom ==="OEUF" ? <span> {cont.quantity} P </span> : <span> {cont.quantity} G </span>  }
+                    {cont.nom === "OEUF" ? (
+                      <span> {cont.quantity} P </span>
+                    ) : (
+                      <span> {cont.quantity} G </span>
+                    )}
                   </div>
                 ))
               ) : (
@@ -344,8 +352,12 @@ const Plats = () => {
                   <td> {selIngr.carbs} </td>
                   <td> {selIngr.fat} </td>
                   <td> {selIngr.kcalories} </td>
-                  { selIngr.nom ==="OEUF" ? <td> {selIngr.quantity} P </td> : <td> {selIngr.quantity} G </td>  }
-                  
+                  {selIngr.nom === "OEUF" ? (
+                    <td> {selIngr.quantity} P </td>
+                  ) : (
+                    <td> {selIngr.quantity} G </td>
+                  )}
+
                   <td>
                     {" "}
                     <Button
