@@ -22,7 +22,7 @@ const Plats = () => {
   useEffect(() => {
     const getNosPlats = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/plat/dataplat");
+        const { data } = await axios.get("https://energy-food-api.vercel.app/plat/dataplat");
         setPlats(data.getData);
       } catch (error) {
         console.log(error);
@@ -34,7 +34,7 @@ const Plats = () => {
   // Delete a plat from the server
   const deletePlats = async (id) => {
     try {
-      const { data } = await axios.delete(`http://localhost:5000/plat/${id}`);
+      const { data } = await axios.delete(`https://energy-food-api.vercel.app/plat/${id}`);
       alert(data.msg);
       setChangeWhenDelete(!changeWhenDelete);
     } catch (error) {
@@ -71,7 +71,7 @@ const Plats = () => {
   // Add a new plat to the server
   const addPlats = async () => {
     try {
-      const result = await axios.post("http://localhost:5000/plat/addplat", {
+      const result = await axios.post("https://energy-food-api.vercel.app/plat/addplat", {
         ...newPlats,
         total: totals,
       });
@@ -182,7 +182,7 @@ const Plats = () => {
   useEffect(() => {
     const getIngredients = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/data");
+        const res = await axios.get("https://energy-food-api.vercel.app/data");
         setIngredients(res.data.getData);
       } catch (error) {
         console.log(error);

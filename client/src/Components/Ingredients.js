@@ -18,7 +18,7 @@ const Ingredients = ({ Ingrs, setIngrs }) => {
   useEffect(() => {
     const getIngrs = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/data");
+        const res = await axios.get("https://energy-food-api.vercel.app/data");
         setIngrs(res.data.getData);
       } catch (error) {
         console.log(error);
@@ -38,7 +38,7 @@ const Ingredients = ({ Ingrs, setIngrs }) => {
 
   const addIngrs = async () => {
     try {
-      const result = await axios.post("http://localhost:5000/add", NewIngr);
+      const result = await axios.post("https://energy-food-api.vercel.app/add", NewIngr);
       alert(result.data.msg);
       setwhenHaveSomeChange(!whenHaveSomeChange);
       setNewIngr({
