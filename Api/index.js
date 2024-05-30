@@ -12,7 +12,7 @@ const PORT = 5000;
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({
-  origin:["https://energy-food.vercel.app/"],
+  origin:["https://energy-food.vercel.app"],
   methods:["POST", "GET", "DELETE"],
   credentials:true
 }));
